@@ -17,7 +17,7 @@ const HomePage = () => {
               To share your projects to others, you can share the link of projects page with a query of your username. 
               This allows others to see your projects without login.
           </Typography>
-          <Typography variant="body1" paragraph>Example: "xxxxxx/projects?username=horacexu"</Typography>
+          <Typography variant="body1" paragraph>Example (To view my projects): "<a href='http://13.59.248.45:3000//projects?username=haotianxu' rel="noopener">http://13.59.248.45:3000//projects?username=haotianxu</a>" </Typography>
           <hr/>
           <Typography variant="h6">My Portfolio</Typography>
           <Typography variant="body1" paragraph>
