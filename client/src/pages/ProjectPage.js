@@ -8,7 +8,6 @@ function useQuery() {
 }
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
-  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [type, setType] = useState('');
@@ -115,10 +114,10 @@ const ProjectPage = () => {
             <CardContent>
             <Typography variant="h5" style={{ wordWrap: 'break-word' }}>{project.title}</Typography>
             <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}>{project.username}</Typography>
-            <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}>Type: {project.type}</Typography>
-            <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}>Description: {project.description}</Typography>
-            {project.github && <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}>Github: {project.github}</Typography>}
-            {project.demo && <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}>Demo: {project.demo}</Typography>}
+            <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}><b>Type:</b> {project.type}</Typography>
+            <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word', whiteSpace: 'pre-line' }}><b>Description:</b> {project.description}</Typography>
+            {project.github && <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}><b>Github:</b> {project.github}</Typography>}
+            {project.demo && <Typography variant="body1" color="textSecondary" style={{ wordWrap: 'break-word' }}><b>Demo:</b> {project.demo}</Typography>}
 
               <Box display="flex" justifyContent="flex-end" marginTop={2}>
               <Button 
@@ -185,6 +184,7 @@ const ProjectPage = () => {
                   value={currentProject?.description || ''}
                   onChange={(e) => setCurrentProject({ ...currentProject, description: e.target.value })}
                   fullWidth
+                  multiline
                 />
               </Grid>
               <Grid item>
@@ -227,10 +227,10 @@ const ProjectPage = () => {
           <TextField label="Title" value={title} onChange={e => setTitle(e.target.value)} required fullWidth />
         </Grid>
         <Grid item>
-          <TextField label="Description" value={description} onChange={e => setDescription(e.target.value)} required multiline fullWidth />
+          <TextField label="Type" value={type} onChange={e => setType(e.target.value)} required fullWidth />
         </Grid>
         <Grid item>
-          <TextField label="Type" value={type} onChange={e => setType(e.target.value)} required fullWidth />
+          <TextField label="Description" value={description} onChange={e => setDescription(e.target.value)} required multiline fullWidth />
         </Grid>
         <Grid item>
           <TextField label="GitHub" value={github} onChange={e => setGithub(e.target.value)} fullWidth />
