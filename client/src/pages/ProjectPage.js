@@ -33,7 +33,7 @@ const ProjectPage = () => {
     setUsername(username);
     const fetchProjects = async () => {
       try {
-          const endpoint = username ? `http://13.59.248.45/projects?username=${username}` : 'http://13.59.248.45/projects';
+          const endpoint = username ? `http://13.59.248.45:5000/projects?username=${username}` : 'http://13.59.248.45/projects';
           const response = await axios.get(endpoint);
           setProjects(response.data);
       } catch (err) {
@@ -58,7 +58,7 @@ const ProjectPage = () => {
   }
   const handleCreate = async (newProjectData) => {
     try {
-      const response = await axios.post('http://13.59.248.45/projects', newProjectData, {
+      const response = await axios.post('http://13.59.248.45:5000/projects', newProjectData, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -71,7 +71,7 @@ const ProjectPage = () => {
 
   const handleUpdate = async (id, updatedProjectData) => {
     try {
-      const response = await axios.patch(`http://13.59.248.45/projects/${id}`, updatedProjectData, {
+      const response = await axios.patch(`http://13.59.248.45:5000/projects/${id}`, updatedProjectData, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -88,7 +88,7 @@ const ProjectPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://13.59.248.45/projects/${id}`, {
+      await axios.delete(`http://13.59.248.45:5000/projects/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
